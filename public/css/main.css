@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+ }
+ .ma{
+     padding: 1.5rem;
+ }
+ .mheader{
+     width:100%;
+     height:3.5rem;
+     background-color: yellowgreen;
+
+ }
+ .mul{
+     display: flex;
+     
+     list-style: none;
+ 
+ }
+ .mnav{
+     display: flex;
+     align-items: center;
+ }
+ .mli{
+     margin: 1.5rem 4rem;
+     padding-left: 3rempx;
+     text-decoration: none;
+ }
+ .mli a{
+     text-decoration: none;
+ }
+ .active{
+    color:yellow;
+ }
+ .mli a:hover,.mli a:active{
+color: red;
+ }
