@@ -1,24 +1,24 @@
-const path=require('path')
-const express=require('express')
-const bodyParser=require('body-parser')
+const path = require('path');
 
-const adminData=require('./routes/admin')
-const shopRouter=require('./routes/shop')
-const get404=require('./controller/error')
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// const routes=require('./routes')
-const app=express()
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(express.static(path.join(__dirname,'public')));
+const errorController = require('./controllers/error');
 
-app.use('/admin',adminData)
-app.use(shopRouter)
+const app = express();
 
-//This is  for dynamic content by making views default folder
-app.set('view engine','ejs')
-app.set('views','views')
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-app.use(get404.get404Page)
- app.listen(3000)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
+
+app.use(errorController.get404);
+
+app.listen(3000);
