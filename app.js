@@ -12,7 +12,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://piyushmaurya203:F4Zz1KztJu5ECfV3@cluster0.umeyv5c.mongodb.net/shop?retryWrites=true&w=majority';
+  'mongodb+srv://piyushmaurya203:F4Zz1KztJu5ECfV3@cluster0.umeyv5c.mongodb.net/shop';
 
 const app = express();
 const store = new MongoDBStore({
@@ -68,8 +68,10 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
+    console.log('Hey i am connected')
     app.listen(3000);
   })
   .catch(err => {
+    console.log("Here is connection error")
     console.log(err);
   });
