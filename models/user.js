@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+//this is model coneected with users
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
